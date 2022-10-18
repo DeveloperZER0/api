@@ -32,7 +32,7 @@ app.get('/category', async (req,res) => {
     console.log('Error: ' + e)
   }
 })
-app.post('/receive', (req, res) => {
+app.post('/receive', async (req, res) => {
     const newEntry = await prisma.post.create({
       data: {
         lat: req.body.lat,
@@ -41,7 +41,7 @@ app.post('/receive', (req, res) => {
         categoryType: req.body.categoryType,
       }
     });
-    res.sendStatus(200);
+    res.json(newEntry)
 })
 
 module.exports = app;
