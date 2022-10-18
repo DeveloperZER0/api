@@ -10,6 +10,7 @@ app.listen(PORT, () =>
 )
 
 app.use(cors())
+app.use(express.json())
 app.get('/', async (req,res) => {
   res.send('API projektu SPOTTED na potrzebę konkursu hackheroes')
 })
