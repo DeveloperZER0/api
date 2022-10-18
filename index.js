@@ -4,7 +4,7 @@ const express = require('express')
 var cors = require('cors')
 
 const pgp = require('pg-promise')(/* options */)
-const db = pgp(env("DATABASE_URL"))
+const db = pgp('postgres://dev:5HGpd5hVbUmK9vKdlLGmrtLmEgGZEr1C@dpg-cd2h8lqen0hgnc904h30-a.frankfurt-postgres.render.com/hackheroesdev')
 
 const app = express()
 const PORT = 4000
@@ -22,7 +22,7 @@ app.get('/markers', async (req, res) => {
     res.json(markers)
   } 
   catch(e) {
-    res.sendStatus(500)
+    console.log('Error: ' + e)
   }
 
 })
