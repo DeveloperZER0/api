@@ -32,7 +32,9 @@ app.get('/category', async (req,res) => {
   }
 })
 app.post('/receive', (req, res) => {
-    console.log(req.body);
+    const data = req.body;
+    //const newEntry = await prisma.post.create({data});
+    console.log(data);
     res.sendStatus(200);
 })
 
