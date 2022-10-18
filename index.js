@@ -21,7 +21,15 @@ app.get('/markers', async (req, res) => {
   catch(e) {
     console.log('Error: ' + e)
   }
-
+})
+app.get('/category', async (req,res) => {
+  try {
+    const categories = await prisma.category.findMany()
+    res.json(categories)
+  } 
+  catch(e) {
+    console.log('Error: ' + e)
+  }
 })
 app.post('/receive', (req, res) => {
     console.log(req.body);
