@@ -33,8 +33,14 @@ app.get('/category', async (req,res) => {
   }
 })
 app.post('/receive', (req, res) => {
-    const data = req.body;
-    const newEntry = await prisma.post.create({data});
+    const newEntry = await prisma.post.create({
+      data: {
+        lat: req.body.lat,
+        lon: req.body.lon,
+        desc: req.body.desc,
+        categoryType: req.body.categoryType,
+      }
+    });
     res.sendStatus(200);
 })
 
